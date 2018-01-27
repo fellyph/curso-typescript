@@ -1,5 +1,5 @@
-function greeter(person) {
-    return "Hello  + " + person;
+function saudacao(person) {
+    return "Olá, " + person.nome + " " + person.sobrenome;
 }
-var user = 'Jane User';
-document.body.innerHTML = greeter(user);
+let user = { nome: "Fellyph", sobrenome: "Cintra" };
+document.body.innerHTML = saudacao(user);

@@ -1,2 +1,5 @@
 # curso-typescript
-Curso online de typeScript
+Curso online de TypeScript
+
+Autor @Fellyph Cintra
+

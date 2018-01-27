@@ -1,8 +1,12 @@
-function greeter(person) {
-  return `Hello  + ${person}`;
+interface Pessoa {
+  nome: string;
+  sobrenome: string;
 }
 
-let user = 'Jane User';
-const CENTRO = 'imedia';
+function saudacao(person: Pessoa) {
+  return "Olá, " + person.nome + " " + person.sobrenome;
+}
 
-document.body.innerHTML = greeter(user);
+let user = { nome: "Fellyph", sobrenome: "Cintra" };
+
+document.body.innerHTML = saudacao(user);
