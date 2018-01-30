@@ -1,4 +1,5 @@
-/*interface Curso {
+/*
+interface Curso {
   nome: string;
   cargaHoraria: number;
   categoria: string;
@@ -11,4 +12,5 @@ let workShop: Curso = {
   nome: 'Photoshop',
   cargaHoraria: 12,
   categoria: 'Design'
-} */
+}
+*/ 

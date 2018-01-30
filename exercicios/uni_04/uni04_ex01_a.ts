@@ -1,8 +1,27 @@
 /*
-interface Curso {
+interface CursoConfig {
   nome: string;
   cargaHoraria: number;
   categoria: string;
+}
+
+class Curso {
+  nome: string;
+  vagas: number;
+  categoria: string;
+  constructor(nome:string, vagas:number, categoria: string) {
+    this.nome = nome;
+    this.vagas = vagas;
+    this.categoria = categoria;
+  }
+
+  matriculaAluno() {
+    if(this.vagas > 0) {
+      this.vagas--;
+    } else {
+      console.log('sem vagas')
+    }
+  }
 }
 
 enum CategoriaCursos {
@@ -11,12 +30,6 @@ enum CategoriaCursos {
   DESIGN = 'design',
   MARKETING = 'marketing'
 }
-
-let cursoOnlinePS: Curso = {
-  nome: 'Photoshop',
-  cargaHoraria: 30,
-  categoria: CategoriaCursos.DESIGN
-};
 
 let cursoPresencialTS: Curso = {
   nome: 'TypeScript',
@@ -29,4 +42,5 @@ let cursoPresencialJS: Curso = {
   cargaHoraria: 40,
   categoria: CategoriaCursos.DESENVOLVIMENTO_WEB
 };
+
 */
