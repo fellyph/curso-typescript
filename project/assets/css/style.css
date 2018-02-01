@@ -29,3 +29,8 @@
   box-sizing: border-box;
   text-align: center
 }
+
+.card .responsive-img {
+  height: auto;
+  max-width: 100%;
+}
