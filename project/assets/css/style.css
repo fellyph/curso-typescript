@@ -1,0 +1,15 @@
+.navbar {
+  text-align: center;
+  background: #F9C948;
+  margin-bottom: 2em;
+}
+
+.logo {
+  margin: 1em 0;
+  display: inline-block;
+}
+
+.navbar .title {
+  color: white;
+  margin: 0.5em 0;
+}
