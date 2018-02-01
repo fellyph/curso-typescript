@@ -17,3 +17,15 @@
 .curso {
   margin-bottom: 1em;
 }
+
+.curso .card {
+  box-shadow: 2px 2px 10px #DDDDDD;
+}
+
+.footerbar {
+  background: #F9C948;
+  color: white;
+  padding: 1em;
+  box-sizing: border-box;
+  text-align: center
+}
