@@ -1,0 +1,36 @@
+.navbar {
+  text-align: center;
+  background: #F9C948;
+  margin-bottom: 2em;
+}
+
+.logo {
+  margin: 1em 0;
+  display: inline-block;
+}
+
+.navbar .title {
+  color: white;
+  margin: 0.5em 0;
+}
+
+.curso {
+  margin-bottom: 1em;
+}
+
+.curso .card {
+  box-shadow: 2px 2px 10px #DDDDDD;
+}
+
+.footerbar {
+  background: #F9C948;
+  color: white;
+  padding: 1em;
+  box-sizing: border-box;
+  text-align: center
+}
+
+.card .responsive-img {
+  height: auto;
+  max-width: 100%;
+}
