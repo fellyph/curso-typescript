@@ -1,15 +1,5 @@
 System.register(["./Curso"], function (exports_1, context_1) {
     "use strict";
-    var __extends = (this && this.__extends) || (function () {
-        var extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return function (d, b) {
-            extendStatics(d, b);
-            function __() { this.constructor = d; }
-            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-        };
-    })();
     var __moduleName = context_1 && context_1.id;
     var Curso_1, CursoPresencial;
     return {
@@ -19,19 +9,27 @@ System.register(["./Curso"], function (exports_1, context_1) {
             }
         ],
         execute: function () {
-            CursoPresencial = /** @class */ (function (_super) {
-                __extends(CursoPresencial, _super);
-                function CursoPresencial(nome, cargaHoraria, categoria, local, vagas) {
-                    if (local === void 0) { local = 'em breve'; }
-                    if (vagas === void 0) { vagas = 99; }
-                    var _this = _super.call(this, nome, cargaHoraria, categoria) || this;
-                    _this.local = local;
-                    _this.vagas = vagas;
-                    return _this;
+            CursoPresencial = class CursoPresencial extends Curso_1.default {
+                constructor(nome, cargaHoraria, categoria, thumb, local = 'em breve', vagas = 99) {
+                    super(nome, cargaHoraria, categoria, thumb);
+                    this.local = local;
+                    this.vagas = vagas;
                 }
-                return CursoPresencial;
-            }(Curso_1.default));
+                render() {
+                    return `<article class="col-sm-6 col-md-4 curso presencial ${this.categoria}">
+        <div class="card">
+            <img class="responsive-img" src="assets/img/javascript.jpg">
+            <div class="card-block">
+                <h4 class="card-title">${this.nome}</h4>
+                <p class="card-text">${this.cargaHoraria}h de curso  - ${this.vagas} vagas</p>
+                <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i> Favoritar</a>
+            </div>
+        </div>
+    </article>`;
+                }
+            };
             exports_1("default", CursoPresencial);
         }
     };
 });
+//# sourceMappingURL=CursoPresencial.js.map

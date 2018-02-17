@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "module": "system",
+        "declaration": true,
+        "target": "es5",
+        "outDir": "./built"
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
+}

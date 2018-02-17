@@ -5,15 +5,16 @@ System.register([], function (exports_1, context_1) {
     return {
         setters: [],
         execute: function () {
-            Curso = /** @class */ (function () {
-                function Curso(nome, cargaHoraria, categoria) {
+            Curso = class Curso {
+                constructor(nome, cargaHoraria, categoria, thumb) {
                     this.nome = nome;
                     this.cargaHoraria = cargaHoraria;
                     this.categoria = categoria;
+                    this.thumb = thumb;
                 }
-                return Curso;
-            }());
+            };
             exports_1("default", Curso);
         }
     };
 });
+//# sourceMappingURL=Curso.js.map

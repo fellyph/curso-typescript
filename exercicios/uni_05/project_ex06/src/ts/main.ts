@@ -17,9 +17,10 @@ class CursoApp {
     }
 
     init() {
-        this.element.innerHTML = '<div class="lista-cursos row">'
+        let listaContent;
+        listaContent = '<div class="row">';
         this.listaCursos.forEach(item => {
-           this.element.innerHTML += `<article class="col-sm-6 col-md-4 curso presencial">
+           listaContent += `<article class="col-sm-6 col-md-4 curso presencial">
            <div class="card">
                <img class="responsive-img" src="${item.thumb}">
                <div class="card-block">
@@ -28,9 +29,10 @@ class CursoApp {
                    <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i> Favoritar</a>
                </div>
            </div>
-       </article>` 
+       </article>`;
         });
-        this.element.innerHTML += '</div>';
+        listaContent += '</div>';
+        this.element.innerHTML = listaContent;
     }
 }
 

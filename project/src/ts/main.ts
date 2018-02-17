@@ -1,36 +1,44 @@
 import CategoriaCursos from './utils/CategoriaCurso';
+import ListaCursoComponente from './componentes/ListaCursoComponente';
+import TipoCurso from './utils/TipoCurso';
+import FavoriteService from './service/FavoriteService';
+import Curso from './curso/Curso';
+import IDataService from './service/IDataService';
+import ICurso from './curso/ICurso';
 import CursoOnline from './curso/CursoOnline';
 import CursoPresencial from './curso/CursoPresencial';
-import CategoriaCurso from './utils/CategoriaCurso';
-import Curso from './curso/Curso';
 
 class CursoApp {
-    private listaCursos = [
-        {nome: 'Typescript', cargaHoraria: 40, categoria: CategoriaCursos.DESENVOLVIMENTO_WEB, thumb: 'assets/img/typescript.jpg', local: 'Recife', vagas: 20},
-        {nome: 'JavaScript', cargaHoraria: 40, categoria: CategoriaCursos.DESENVOLVIMENTO_WEB, thumb: 'assets/img/javascript.jpg', link: 'http://imediabrasil.com.br'}
+    private data = [
+        {tipo: TipoCurso.PRESENCIAL, nome: 'Typescript', cargaHoraria: 40, categoria: CategoriaCursos.DESENVOLVIMENTO_WEB, local: 'Recife', vagas: 20},
+        {tipo: TipoCurso.PRESENCIAL, nome: 'JavaScript', cargaHoraria: 40, categoria: CategoriaCursos.DESENVOLVIMENTO_WEB, local: 'Sao Paulo', vagas: 10},
+        {tipo: TipoCurso.ONLINE, nome: 'PhotoShop', cargaHoraria: 40, categoria: CategoriaCursos.DESIGN, link: 'http://www.imediabrasil.com.br' }
     ];
-    private element;
-
-    constructor(element) {
-        this.element = element;
+    private target:HTMLElement;
+    private listaCursoComponente:ListaCursoComponente;
+    private listaCursos:Array<ICurso>;
+    
+    constructor(element:HTMLElement) {
+        this.target = element;
+        this.listaCursos = [];
+        this.data.forEach(item => this.listaCursos.push(this.factoryCurso(item)));
         this.init();
     }
 
     init() {
-        this.element.innerHTML = '<div class="lista-cursos row">'
-        this.listaCursos.forEach(item => {
-           this.element.innerHTML += `<article class="col-sm-6 col-md-4 curso presencial">
-           <div class="card">
-               <img class="responsive-img" src="${item.thumb}">
-               <div class="card-block">
-                   <h4 class="card-title">${item.nome}</h4>
-                   <p class="card-text">${item.cargaHoraria}h de curso - ${item.categoria}</p>
-                   <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i> Favoritar</a>
-               </div>
-           </div>
-       </article>` 
-        });
-        this.element.innerHTML += '</div>';
+        this.listaCursoComponente = new ListaCursoComponente(this.listaCursos);
+        this.target.innerHTML = this.listaCursoComponente.render();
+    }
+
+    factoryCurso(item):ICurso {
+        switch(item.tipo){
+            case TipoCurso.ONLINE:
+                return new CursoOnline(item.nome, item.cargaHoraria, item.categoria, item.link);
+            case TipoCurso.PRESENCIAL:
+                return new CursoPresencial(item.nome, item.cargaHoraria, item.categoria, item.local, item.vagas);
+            default:
+                return new Curso(item.nome, item.cargaHoraria, item.categoria, item.thumb);
+        }
     }
 }
 
